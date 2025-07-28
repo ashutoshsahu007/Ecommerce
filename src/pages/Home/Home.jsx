@@ -1,3 +1,4 @@
+import Cart from "../../layouts/Cart";
 import MainLayout from "../../layouts/MainLayout";
 import AlbumPromo from "./components/AlbumPromo";
 import ToursList from "./components/ToursList";
