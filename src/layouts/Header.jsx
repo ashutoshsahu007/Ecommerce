@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = ({ setShowCart }) => {
   return (
@@ -8,15 +8,38 @@ const Header = ({ setShowCart }) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <nav className="flex space-x-8">
-            <Link to="/home" className="hover:text-gray-300 transition-colors">
+            <NavLink
+              to="/home"
+              className={({ isActive }) =>
+                `hover:text-gray-300 transition-colors ${
+                  isActive ? "text-white font-bold underline" : ""
+                }`
+              }
+            >
               HOME
-            </Link>
-            <Link to="/" className="hover:text-gray-300 transition-colors">
+            </NavLink>
+
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `hover:text-gray-300 transition-colors ${
+                  isActive ? "text-white font-bold underline" : ""
+                }`
+              }
+            >
               STORE
-            </Link>
-            <Link to="/about" className="hover:text-gray-300 transition-colors">
+            </NavLink>
+
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `hover:text-gray-300 transition-colors ${
+                  isActive ? "text-white font-bold underline" : ""
+                }`
+              }
+            >
               ABOUT
-            </Link>
+            </NavLink>
           </nav>
 
           <div className="flex items-center  space-x-2">
