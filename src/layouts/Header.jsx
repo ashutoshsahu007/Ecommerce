@@ -10,11 +10,11 @@ const Header = ({ setShowCart }) => {
           <nav className="flex space-x-8">
             <NavLink
               to="/home"
-              className={({ isActive }) =>
-                `hover:text-gray-300 transition-colors ${
+              className={({ isActive }) => {
+                return `hover:text-gray-300 transition-colors ${
                   isActive ? "text-white font-bold underline" : ""
-                }`
-              }
+                }`;
+              }}
             >
               HOME
             </NavLink>
@@ -39,6 +39,17 @@ const Header = ({ setShowCart }) => {
               }
             >
               ABOUT
+            </NavLink>
+
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `hover:text-gray-300 transition-colors ${
+                  isActive ? "text-white font-bold underline" : ""
+                }`
+              }
+            >
+              CONTACT
             </NavLink>
           </nav>
 

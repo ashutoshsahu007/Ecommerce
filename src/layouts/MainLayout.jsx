@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
       <Header setShowCart={setShowCart} />
       <GenericsHero />
       {showCart && <Cart setShowCart={setShowCart} />}
-      <main className="min-h-[80vh]">{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );
