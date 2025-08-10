@@ -51,6 +51,17 @@ const Header = ({ setShowCart }) => {
             >
               CONTACT
             </NavLink>
+
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `hover:text-gray-300 transition-colors ${
+                  isActive ? "text-white font-bold underline" : ""
+                }`
+              }
+            >
+              LOGIN
+            </NavLink>
           </nav>
 
           <div className="flex items-center  space-x-2">

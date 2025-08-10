@@ -61,11 +61,11 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="">
       <Header />
       <form
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-10 mb-10 flex-grow"
+        className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-10 mb-10 "
       >
         <h2 className="text-2xl font-semibold mb-6 text-center">User Form</h2>
 
