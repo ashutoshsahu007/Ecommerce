@@ -31,8 +31,6 @@ export const AuthContextProvider = (props) => {
     logout: logoutHandler,
   };
 
-  console.log(contextValue.isLoggedIn, "isloggedddddddddIn");
-
   return (
     <AuthContext.Provider value={contextValue}>
       {props.children}

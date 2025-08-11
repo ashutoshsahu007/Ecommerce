@@ -1,41 +1,20 @@
-import React from "react";
 import MainLayout from "../layouts/MainLayout";
+import { useContext } from "react";
+import CartContext from "../store/cart-context";
+import GenericsHero from "../layouts/GenericsHero";
+import { productsArr } from "../Constant/constant";
 
 const Store = () => {
-  const productsArr = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    },
+  const cartCtx = useContext(CartContext);
 
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    },
-
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    },
-
-    {
-      title: "Blue Color",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
-  ];
+  const handleAddToCart = (album) => {
+    cartCtx.addItem(album);
+  };
 
   return (
     <MainLayout>
       {/* Hero Section */}
-
+      <GenericsHero />
       {/* Music Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -64,7 +43,10 @@ const Store = () => {
                   <span className="text-xl font-medium text-gray-700">
                     ${album.price}
                   </span>
-                  <button className="bg-cyan-400 hover:bg-cyan-500 text-gray-800 font-semibold px-6 py-2 rounded">
+                  <button
+                    onClick={() => handleAddToCart(album)}
+                    className="bg-cyan-400 hover:bg-cyan-500 text-gray-800 font-semibold px-6 py-2 cursor-pointer rounded"
+                  >
                     ADD TO CART
                   </button>
                 </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
+import MainLayout from "../layouts/MainLayout";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -61,8 +62,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="">
-      <Header />
+    <MainLayout>
       <form
         onSubmit={handleSubmit}
         className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-10 mb-10 "
@@ -131,8 +131,7 @@ const ContactUs = () => {
           Submit
         </button>
       </form>
-      <Footer />
-    </div>
+    </MainLayout>
   );
 };
 

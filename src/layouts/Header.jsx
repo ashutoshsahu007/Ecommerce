@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../store/cart-context";
 
 const Header = ({ setShowCart }) => {
+  const cartCtx = useContext(CartContext);
+
+  const cartLength = cartCtx.cartItems.length;
+
   return (
     <header className="bg-gray-800 text-white sticky top-0 z-100">
       <div className="container mx-auto px-4">
@@ -72,7 +78,7 @@ const Header = ({ setShowCart }) => {
               <ShoppingCart className="w-4 h-4 mr-1" />
               cart
               <span className="ml-1 bg-cyan-400 text-gray-800 rounded-full w-5 h-5 flex items-center justify-center text-xs">
-                0
+                {cartLength}
               </span>
             </button>
           </div>

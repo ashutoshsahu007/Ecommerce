@@ -1,37 +1,16 @@
 import React from "react";
-
-const cartItems = [
-  {
-    id: 1,
-    title: "Album 3",
-    price: 9.99,
-    quantity: 1,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
-  {
-    id: 2,
-    title: "Album 4",
-    price: 19.99,
-    quantity: 1,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-  {
-    id: 3,
-    title: "Album 2",
-    price: 14.99,
-    quantity: 1,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-  },
-  {
-    id: 4,
-    title: "Album 1",
-    price: 12.99,
-    quantity: 1,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-  },
-];
+import { useContext } from "react";
+import CartContext from "../store/cart-context";
 
 const Cart = ({ setShowCart }) => {
+  const cartCtx = useContext(CartContext);
+
+  const cartItems = cartCtx.cartItems;
+
+  const handleRemove = (id) => {
+    cartCtx.removeItem(id);
+  };
+
   return (
     <div className="fixed top-16 right-0 w-[30rem] h-[80vh] bg-white shadow-xl overflow-y-auto z-100 px-6 border-l">
       {/* Header */}
@@ -81,9 +60,13 @@ const Cart = ({ setShowCart }) => {
               type="number"
               value={item.quantity}
               min="1"
+              max="10"
               className="w-12 border text-center py-1 px-2 rounded-md border-gray-300"
             />
-            <button className="bg-red-500 cursor-pointer text-white px-2 py-1 rounded hover:bg-red-600">
+            <button
+              onClick={() => handleRemove(item.id)}
+              className="bg-red-500 cursor-pointer text-white px-2 py-1 rounded hover:bg-red-600"
+            >
               REMOVE
             </button>
           </div>
@@ -92,7 +75,10 @@ const Cart = ({ setShowCart }) => {
 
       {/* Purchase Button */}
       <div className=" text-center sticky bottom-0  py-3 bg-white z-100 w-full">
-        <button className="bg-blue-500 text-white font-semibold px-6 py-2 rounded hover:bg-blue-600">
+        <button
+          onClick={() => cartCtx.clearCart()}
+          className="bg-blue-500 text-white cursor-pointer font-semibold px-6 py-2 rounded hover:bg-blue-600"
+        >
           PURCHASE
         </button>
       </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,6 +15,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Store />} />
       </Routes>
     </BrowserRouter>
   );
