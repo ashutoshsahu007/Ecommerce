@@ -60,7 +60,6 @@ const Cart = ({ setShowCart }) => {
               type="number"
               value={item.quantity}
               min="1"
-              max="10"
               className="w-12 border text-center py-1 px-2 rounded-md border-gray-300"
             />
             <button
